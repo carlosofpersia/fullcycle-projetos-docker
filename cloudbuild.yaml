@@ -19,6 +19,10 @@
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'key:generate']
 
+  - id: "Definindo usuario root para o banco de dados mysql"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['mysql', '-h', 'db', '-u', 'root', '--password=root']
+
   - id: "Rodando migrations"
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate']
