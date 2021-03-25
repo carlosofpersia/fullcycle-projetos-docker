@@ -8,7 +8,7 @@
     args: ['ps']
 
   - id: "Chown in /var/www"
-    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    name: 'gcr.io/cloud-builders/docker'
     args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www']
 
 #  - id: "Chown in /var/www + mysql"
@@ -37,7 +37,7 @@
 
   - id: "Rodando migrations"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate', '--no-interaction', '--force']
+    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate --no-interaction --force']
 
   - id: "Rodando phpunit"
     name: 'gcr.io/cloud-builders/docker'
