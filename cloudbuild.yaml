@@ -11,9 +11,9 @@
     name: 'gcr.io/cloud-builders/docker'
     args: ['ps']
 
-  - id: "Copiando .env"
+  - id: "Rodando o composer install das dependencias do PHP."
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'cp', 'composer', 'install']
+    args: ['exec', '-t', 'app', 'composer', 'install']
 
   - id: "Copiando .env"
     name: 'gcr.io/cloud-builders/docker'
