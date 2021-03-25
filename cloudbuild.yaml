@@ -29,7 +29,7 @@
 
   - id: "Definindo usuario root para o banco de dados mysql"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'bash' 'mysql', '-uroot', '-proot']
+    args: ['exec', '-t', 'app', 'bash', 'mysql', '-uroot', '-proot']
 
 # mysql -h db -u root --password=root
 
