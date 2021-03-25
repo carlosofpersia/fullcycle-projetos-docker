@@ -13,7 +13,7 @@
 
   - id: "Chown usermod"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-u','root','-t','app','usermod','-u','1000','www-data']
+    args: ['exec','-u','root','-t','app','apk','add','--no-cache','mysql-client', 'docker-php-ext-install', 'pdo', 'pdo_mysql']
 
 #  - id: "Chown in /var/www + mysql"
 #    name: 'gcr.io/cloud-builders/docker'
