@@ -37,7 +37,7 @@
 
   - id: "Rodando migrations"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate', '--force']
+    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate:refresh', '--seed', '--force']
 
   - id: "Rodando phpunit"
     name: 'gcr.io/cloud-builders/docker'
