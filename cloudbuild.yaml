@@ -11,10 +11,6 @@
     name: 'gcr.io/cloud-builders/docker'
     args: ['ps']
 
-  - id: "limpando o laravel"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'config:clear']
-
   - id: "Rodando o composer install das dependencias do PHP."
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec', '-t', 'app', 'composer', 'install']
@@ -22,6 +18,14 @@
   - id: "Copiando .env"
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
+
+  - id: "limpando o laravel"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'config:clear']
+
+  - id: "limpando o laravel"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'cache:clear']
 
   - id: "Rodando key:generate"
     name: 'gcr.io/cloud-builders/docker'
@@ -31,7 +35,7 @@
 
   - id: "Rodando migrations"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate']
+    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate:fresh']
 
   - id: "Rodando phpunit"
     name: 'gcr.io/cloud-builders/docker'
