@@ -13,6 +13,10 @@
 
   - id: "Copiando .env"
     name: 'gcr.io/cloud-builders/docker'
+    args: ['exec', '-t', 'app', 'cp', 'composer', 'install']
+
+  - id: "Copiando .env"
+    name: 'gcr.io/cloud-builders/docker'
     args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
 
   - id: "limpando o laravel"
