@@ -11,10 +11,6 @@
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www']
 
-  - id: "Chown usermod"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-u','root','-t','app','apk','add','--no-cache','mysql-client', 'docker-php-ext-install', 'pdo', 'pdo_mysql']
-
 #  - id: "Chown in /var/www + mysql"
 #    name: 'gcr.io/cloud-builders/docker'
 #    args: ['exec','-u','root','-t','db','chown','-R','www-data:www-data','/var/lib/mysql']
