@@ -29,7 +29,8 @@
 
   - id: "Definindo usuario root para o banco de dados mysql"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'mysql', '-u', 'root', '-p', 'root']
+    args: ['exec', '-t', 'app', 'bash' 'mysql', '-uroot', '-proot']
+
 # mysql -h db -u root --password=root
 
   - id: "Rodando migrations"
