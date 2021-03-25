@@ -37,7 +37,7 @@ services:
         image: mysql:8.0
         command: --innodb-use-native-aio=0
         container_name: db
-        restart: always
+        restart: on-failure
         tty: true
         ports:
             - "3306:3306"
