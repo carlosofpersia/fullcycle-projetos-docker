@@ -39,6 +39,6 @@
 #    name: 'gcr.io/cloud-builders/docker'
 #    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate', '--force']
 
-  - id: "Rodando Phpunit"
+  - id: "Rodando phpunit"
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec', '-t', 'app', 'php', '/var/www/vendor/bin/phpunit', '-c', '/var/www/phpunit.xml']
