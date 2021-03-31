@@ -11,9 +11,9 @@
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www']
 
-  - id: "Chown in /var/www + mysql"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-u','root','-t','db','chown','-R','www-data:www-data','/var/lib/mysql']
+  - #id: "Chown in /var/www + mysql"
+    #name: 'gcr.io/cloud-builders/docker'
+    #args: ['exec','-u','root','-t','db','chown','-R','www-data:www-data','/var/lib/mysql']
 
   - id: "Rodando o composer install das dependencias do PHP."
     name: 'gcr.io/cloud-builders/docker'
