@@ -42,11 +42,10 @@ services:
         ports:
             - "3306:3306"
         volumes:
-            - .docker/dbdata:/var/lib/mysql:rw
+            - ./.docker/dbdata:/var/lib/mysql:rw
         environment:
             - MYSQL_DATABASE=laravel
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_PASSWORD=root
         networks:
             - app-network
 
