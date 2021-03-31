@@ -9,6 +9,7 @@ services:
         environment:
             - DB_HOST=localhost
             - DB_DATABASE=laravel
+            - DB_USERNAME=root
             - DB_PASSWORD=root
         volumes:
             - .:/var/www
