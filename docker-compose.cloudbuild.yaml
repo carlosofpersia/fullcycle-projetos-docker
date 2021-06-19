@@ -39,14 +39,16 @@ services:
         container_name: db
         restart: always
         tty: true
+        expose:
+            - 3306
         ports:
             - 3306:3306
         volumes:
-            - ./.docker/dbdata:/var/lib/mysql:rw
+            - ./.docker/dbdata:/var/lib/mysql
         environment:
-            - MYSQL_DATABASE=laravel
-            - MYSQL_ROOT_PASSWORD=mysql
-            - MYSQL_PASSWORD=
+            MYSQL_DATABASE: laravel
+            MYSQL_ALLOW_EMPTY_PASSWORD: yes
+            MYSQL_ROOT_PASSWORD: root
         networks:
             - app-network
 
