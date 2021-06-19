@@ -14,18 +14,18 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 
 WORKDIR /var/www
 RUN rm -rf /var/www/html
+RUN rm -rf /var/www/.docker/dbdata/
 
 RUN ln -s public html
 
 COPY . /var/www
 
-RUN composer install \
-                && php artisan key:generate \
-                && php artisan cache:clear \
-                && chmod -R 775 storage
+#RUN composer install \
+#                && php artisan key:generate \
+#                && php artisan cache:clear \
+#                && chmod -R 775 storage
 
 RUN npm install
-
 
 FROM php:7.4.9-fpm-alpine3.12
 
@@ -34,6 +34,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 WORKDIR /var/www
 RUN rm -rf /var/www/html
+RUN rm -rf /var/www/.docker/dbdata/
 
 #aqui o apice para resolver coisas que nao quero levar para producao.
 COPY --from=builder /var/www .
