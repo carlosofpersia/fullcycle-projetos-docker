@@ -1,4 +1,9 @@
   steps:
+
+  - id: "Remove configuracoes .docker/dbdata -> mysql"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['exec','-u','root','-t','app','rm -rf', './docker/dbdata']
+    
   - id: "Rodando docker-compose - curso codeeducation"
     name: 'gcr.io/$PROJECT_ID/docker-compose:1.28.2'
     args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d']
