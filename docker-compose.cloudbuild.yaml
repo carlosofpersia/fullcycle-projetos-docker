@@ -35,12 +35,12 @@ services:
 
     db:
         image: mysql:8.0
-        command: --default-authentication-plugin=mysql_native_password
+        command: --innodb-use-native-aio=0
         container_name: db
         restart: always
         tty: true
         ports:
-            - "3306:3306"
+            - 3306:3306
         volumes:
             - ./.docker/dbdata:/var/lib/mysql:rw
         environment:
