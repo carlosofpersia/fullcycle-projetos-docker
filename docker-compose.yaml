@@ -38,16 +38,16 @@ services:
         image: mysql:8.0
         command: --innodb-use-native-aio=0
         container_name: db
-        restart: always
+        restart: on-failure
         tty: true
         ports:
-            - 3306:3306
+            - "3306:3306"
         volumes:
             - ./.docker/dbdata:/var/lib/mysql
         environment:
             - MYSQL_DATABASE=laravel
-            - MYSQL_ROOT_PASSWORD=mysql
-            - MYSQL_USER=
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=root
         networks:
             - app-network
 
