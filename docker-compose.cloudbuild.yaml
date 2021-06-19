@@ -47,8 +47,8 @@ services:
             - ./.docker/dbdata:/var/lib/mysql
         environment:
             - MYSQL_DATABASE:laravel
-            - MYSQL_USER=forge
-            - MYSQL_ROOT_PASSWORD:forge
+            - MYSQL_USER=mysql
+            - MYSQL_ROOT_PASSWORD:root
         networks:
             - app-network
 
