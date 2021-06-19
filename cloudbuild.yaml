@@ -4,10 +4,6 @@
     name: 'gcr.io/$PROJECT_ID/docker-compose:1.28.2'
     args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d']
 
-  - id: "Remove configuracoes .docker/dbdata -> mysql"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-u','root','-t','app', 'rm', '-rf', '/var/www./docker/dbdata']
-
   - id: "Rodando docker ps"
     name: 'gcr.io/cloud-builders/docker'
     args: ['ps']
@@ -42,7 +38,7 @@
 
   - id: "Rodando Migrations"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate']
+    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate', '--force']
 
   - id: "Rodando Phpunit"
     name: 'gcr.io/cloud-builders/docker'
