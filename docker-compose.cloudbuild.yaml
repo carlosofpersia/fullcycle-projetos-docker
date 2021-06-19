@@ -46,9 +46,8 @@ services:
         volumes:
             - ./.docker/dbdata:/var/lib/mysql
         environment:
-            MYSQL_DATABASE: "laravel"
-            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-            MYSQL_ROOT_PASSWORD: "root"
+            - MYSQL_DATABASE:laravel
+            - MYSQL_ROOT_PASSWORD:root
         networks:
             - app-network
 
